@@ -1,0 +1,55 @@
+Teams countries
+Get the list of countries available for the teams endpoint.
+
+Update Frequency : This endpoint is updated several times a week.
+
+Recommended Calls : 1 call per day.
+
+header Parameters
+x-rapidapi-key
+required
+string
+Your Api-Key
+import http.client
+
+conn = http.client.HTTPSConnection("v3.football.api-sports.io")
+
+headers = {
+    'x-rapidapi-host': "v3.football.api-sports.io",
+    'x-rapidapi-key': "XxXxXxXxXxXxXxXxXxXxXxXx"
+    }
+
+conn.request("GET", "/teams/countries", headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+##################################################
+Responses;
+
+200 OK:
+Response Schema: application/json
+| Field | Type |
+|-------|------|
+| get | string |
+| parameters | Array of objects |
+| errors | Array of objects |
+| results | integer |
+| response | Array of arrays |
+{
+  "get": "teams/countries",
+  "parameters": [],
+  "errors": [],
+  "results": 258,
+  "paging": {
+    "current": 1,
+    "total": 1
+  },
+  "response": [
+    {
+      "name": "England",
+      "code": "GB",
+      "flag": "https://media.api-sports.io/flags/gb.svg"
+    }
+  ]
+}
